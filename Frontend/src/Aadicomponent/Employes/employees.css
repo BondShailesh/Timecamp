@@ -1,0 +1,27 @@
+.employees{
+    margin: auto;
+    margin-top: 5rem;
+    text-align: left;
+
+}
+.p{
+color: #25CF60;
+
+margin-bottom: 1rem;
+}
+.heading{
+    text-align: left;
+  width: 50%;
+}
+.employees p{
+    width:60%;
+}
+.heading2 h4{
+color:grey;
+margin-bottom: 10px;
+}
+@media screen and (max-width: 800px){
+    .employee img{
+        display: none;
+    }
+}

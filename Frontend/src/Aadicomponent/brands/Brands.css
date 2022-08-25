@@ -1,0 +1,100 @@
+*{
+    font-family:sans-serif;
+    
+}
+
+.top_brand{
+    display: flex;
+    justify-content: space-around;
+    background-image:url("https://cdn-m.timecamp.com/img/backgroundTop.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 910px;
+    height: 910px;
+    width:100%;
+}
+.top_brand_name{
+    padding: 20px;
+    background-color:#25CF60 ;
+    height: fit-content;
+   font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.top_brand_name div{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.top_project{
+    margin-left: 100px;
+    background-color: #FFFFFFE6;
+    width:39%;
+    padding: 3rem;
+    text-align: left;
+    height: fit-content;
+}
+.top_project input{
+ height: 60px;
+ border-radius: 30px;
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.top_project button{
+    padding: 30px;
+    border-radius: 40px;
+}
+.top_project_button{
+    display: flex;
+    padding-top:7px;
+    justify-content:space-around;
+}
+
+.top_owner{
+    background-color: #FFFFFFE6;
+    width:35%;
+    margin-top: 20rem;
+    height: fit-content;
+    padding: 50px;
+   align-items: center;
+}
+.top_owner div{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-items: center;
+    padding: 0;
+}
+.top_owner img{
+    padding-left: 11rem;
+}
+
+
+@media screen and (max-width: 800px) {
+    .top_brand{
+        background-image: none;  
+    }
+    .top_owner{
+        display: none;
+    }
+    .top_div{
+        display: flex;
+        flex-direction: column;
+    }
+    .top_project{
+        width: 80%;
+     margin-bottom: 0;
+    }
+    .top_brand_name div{
+     display: grid;
+     grid-template-columns: repeat(3,1fr);
+     width:100%;
+     justify-content: space-around;
+     margin: auto;
+     margin-top: 10px;
+     
+    }
+    .top_brand_name div img{
+        margin-bottom: 15px;
+    }
+}
