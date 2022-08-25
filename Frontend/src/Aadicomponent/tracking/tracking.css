@@ -1,0 +1,23 @@
+.tracking_top{
+    margin-top: 5rem;
+    background-color: #F3F3F3;
+    padding:4rem;
+}
+.p{
+    color: #25CF60;}
+
+.tracking_left{
+    padding-left: 6rem;
+    text-align: left;
+ width:40%;
+
+}
+
+.tracking_right{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.tracking_right img{
+    height: 60px;
+}

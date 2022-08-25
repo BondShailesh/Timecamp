@@ -69,7 +69,7 @@ const Brands = () => {
 
            </div>
     {/* // second div */}
-           <div className='top_owner'>
+           {/* <div className='top_owner'>
            
                <img src="https://cdn-m.timecamp.com/img/person.jpg" style={{height:"70px"}} />
             
@@ -84,7 +84,7 @@ const Brands = () => {
            
 
 
-           </div>
+           </div> */}
       </div>
         </div>
         <div className='top_brand_name'>
