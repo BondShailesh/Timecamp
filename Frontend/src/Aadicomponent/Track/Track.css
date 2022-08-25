@@ -1,0 +1,23 @@
+*{
+    font-weight: bold;
+}
+
+.track{
+   margin-top: 3rem;
+}
+.color{
+   color: #25CF60 ;
+}
+.track>div{
+    display: flex;
+    margin: auto;
+    width:40%;
+    justify-content: space-around;
+    margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 800px){
+    .employee img{
+        display: none;
+    }
+}
