@@ -4,14 +4,12 @@ const userdataRoute = require("../schema/userdataSchema");
 //
 userDataRouter.get("/",async(req,res)=>{
     let user = await userdataRoute.find().populate("cred",{
-        name:1,
-        _id:0
     })
     res.send(user)
 })
 
 userDataRouter.get("/:id",async(req,res)=>{
-    let user = await userdataRoute.findById(req.params._id)
+    let user = await userdataRoute.find({cred:{_id:req.params.id}})
     res.send(user)
 })
 
@@ -25,13 +23,12 @@ userDataRouter.post("/",async(req,res)=>{
     }
 })
 
-userDataRouter.delete("/",async(req,res)=>{
+userDataRouter.delete("/:id",async(req,res)=>{
     try{
   let user = await userdataRoute.deleteOne({_id:req.params.id})
   res.send(user)
     }catch(e){
-        res.send(e.message)
-        console.log(req.body);
+        res.status(401).send(e.message)
     }
 })
 

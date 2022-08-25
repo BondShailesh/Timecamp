@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const userschema = new mongoose.Schema({
   email: String,
   password: String,
-  task: { type: String, required: true },
+  task: String ,
   note: String,
+  entrydate:Date,
   startTime: String,
   endTime: String,
   cred: 
