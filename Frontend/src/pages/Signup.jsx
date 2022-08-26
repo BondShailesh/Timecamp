@@ -1,7 +1,34 @@
 import { Box, Button, Flex, Heading, Image, Input, Link, Text } from "@chakra-ui/react";
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { postautherror, postauthloading, postauthsucces } from "../redux/Authcontext/Action";
 
 const Signup = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [auth,setauth] = useState(false)
+  const navigate = useNavigate()
+const dispatch = useDispatch()
+  const handleclick = () => {
+    //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
+    dispatch(postauthloading())
+    axios
+      .post("http://localhost:8080/usercred", {
+        email: email,
+        password: password,
+      })
+      .then((res) =>{
+        localStorage.setItem("userid", JSON.stringify(res.data._id))
+       dispatch(postauthsucces(res.data._id))
+       navigate("/auth/login")
+      }
+      ).catch((e)=>{
+        dispatch(postautherror())
+      })
+  };
   return (
     <div>
       <Flex
@@ -83,10 +110,10 @@ const Signup = () => {
               <Text>Or</Text>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
-              <Input type="text" placeholder="Email"></Input>
+              <Input type="text" placeholder="Email" onChange={(e) => setemail(e.target.value)} ></Input>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
-              <Input type="password" placeholder="Password"></Input>
+              <Input type="password" placeholder="Password" onChange={(e) => setpassword(e.target.value)} ></Input>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
               <Input type="password" placeholder="Phone(Optional)"></Input>
@@ -100,6 +127,7 @@ const Signup = () => {
                 borderRadius="26px"
                 color="#fff"
                 border="none"
+                onClick={handleclick}
               >
                 Sign up for free
               </Button>

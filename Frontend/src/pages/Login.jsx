@@ -8,12 +8,65 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import GoogleLogin from "react-google-login";
+import axios, { Axios } from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { postautherror, postauthloading, postauthsucces, postproductloading } from "../redux/Authcontext/Action";
+import  store from "../redux/store";
+import { loadData } from "../utils/localstorage";
+import { useNavigate } from "react-router-dom";
+// client id = 138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com
+// client secret = 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
 const Login = () => {
+  const store = useSelector((store)=>store)
+  const [auth,setauth] = useState(false)
+  const [data, setdata] = useState({});
+  const [token, settoken] = useState();
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const responseGoogle = (response) => {
+    console.log(response);
+    const { profileObj, tokenId } = response;
+    setdata(profileObj);
+    settoken(tokenId);
+  };
+
+  // var data1 = localStorage.getItem("userid");
+  // data1 = JSON.parse(data);
+  // console.log(222,data1);
+console.log(store)
+  const handleclick = () => {
+     
+    const d = loadData("userid")
+    console.log(d);
+
+   
+    //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
+    dispatch(postauthloading())
+    axios
+      .get(`http://localhost:8080/usercred/${d}`)
+      .then((res) =>{
+        localStorage.setItem("loginid", JSON.stringify(res.data[0]._id))
+     
+       dispatch(postauthsucces(res.data._id))
+        if(res.data[0]._id){
+          setauth(true)
+        navigate("/app")
+        }else{
+          navigate("/auth/login")
+        }
+      }
+      ).catch((e)=>{
+        dispatch(postautherror())
+      })
+  };
+
   return (
     <>
-    {/* navbar */}
+      {/* navbar */}
       <Box
         w="100%"
         p="2rem"
@@ -100,6 +153,7 @@ const Login = () => {
                 ></Image>
                 <Text>Add time camp for chrome</Text>
               </Link>
+              ,
             </Box>
             <Flex>
               <Box>
@@ -133,7 +187,7 @@ const Login = () => {
               >
                 Log in to TimeCamp
               </Heading>
-              <Button
+              {/* <Button
                 padding="0.8rem 0.5rem"
                 background="#ffffff"
                 border="1px solid #e9e9e9"
@@ -148,14 +202,30 @@ const Login = () => {
                 <Link font-weight="700" color="#767676" textDecoration="none">
                   Log in google
                 </Link>
-              </Button>
+              </Button> */}
+
+              <GoogleLogin
+                clientId="138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com"
+                // buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+              />
+
               <Text>Or</Text>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
-              <Input type="text" placeholder="Email"></Input>
+              <Input
+                type="text"
+                placeholder="Email"
+                onChange={(e) => setemail(e.target.value)}
+              ></Input>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
-              <Input type="password" placeholder="Password"></Input>
+              <Input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setpassword(e.target.value)}
+              ></Input>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
               <Link
@@ -175,6 +245,7 @@ const Login = () => {
                 borderRadius="26px"
                 color="#fff"
                 border="none"
+                onClick={handleclick}
               >
                 Log in
               </Button>
