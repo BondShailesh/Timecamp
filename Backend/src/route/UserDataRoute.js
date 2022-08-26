@@ -1,9 +1,9 @@
 const express = require("express");
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const userDataRouter = express.Router();
 const userdataRoute = require("../schema/userdataSchema");
-const  jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// const  jsonParser = bodyParser.json()
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 userDataRouter.get("/", async (req, res) => {
     let user = await userdataRoute.find().populate("cred", {
@@ -54,12 +54,11 @@ userDataRouter.delete("/:id", async (req, res) => {
 
 userDataRouter.patch("/:id", async (req, res) => {
     try {
-        //   let user = await userdataRoute.updateOne({_id:req.params.id},{$set: {body}})
-        console.log(body);
-        res.send("working")
+          let user = await userdataRoute.updateOne({_id:req.params.id},{$set: {...req.body}})
         res.send(user)
     } catch (e) {
-        res.status(401).send(e.message)
+        res.status(401).send(e.message);
+        console.log("something");
     }
 })
 

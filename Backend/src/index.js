@@ -1,17 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
+const  cors = require('cors')
 const userDataRoute = require("./route/UserDataRoute");
 const userCredRoute = require("./route/UserCredRoute");
-const  jsonParser = bodyParser.json()
 const app = express();
 app.use(express.json())
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
-const  cors = require('cors')
-app.use(cors())
-// app.use(express.jsonParser())
-
-app.use("/userdata", userDataRoute)
+app.use("/userdata",userDataRoute)
 app.use("/usercred", userCredRoute)
 
 app.listen(8080, () => {
