@@ -1,9 +1,6 @@
 const express = require("express");
-// const bodyParser = require('body-parser')
 const userDataRouter = express.Router();
 const userdataRoute = require("../schema/userdataSchema");
-// const  jsonParser = bodyParser.json()
-// var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 userDataRouter.get("/", async (req, res) => {
     let user = await userdataRoute.find().populate("cred", {
@@ -39,12 +36,12 @@ userDataRouter.post("/", async (req, res) => {
 userDataRouter.delete("/:id", async (req, res) => {
     try {
         let user1 = await userdataRoute.find({ cred: { _id: req.params.id } })
-        if(user1.length>=1){
+        if (user1.length >= 1) {
             let userD = await userdataRoute.deleteMany({ cred: { _id: req.params.id } })
             res.send(userD);
-        }else{
-           let user = await userdataRoute.deleteOne({ _id: req.params.id })
-           res.send(user);
+        } else {
+            let user = await userdataRoute.deleteOne({ _id: req.params.id })
+            res.send(user);
         }
 
     } catch (e) {
@@ -54,7 +51,7 @@ userDataRouter.delete("/:id", async (req, res) => {
 
 userDataRouter.patch("/:id", async (req, res) => {
     try {
-          let user = await userdataRoute.updateOne({_id:req.params.id},{$set: {...req.body}})
+        let user = await userdataRoute.updateOne({ _id: req.params.id }, { $set: { ...req.body } })
         res.send(user)
     } catch (e) {
         res.status(401).send(e.message);
