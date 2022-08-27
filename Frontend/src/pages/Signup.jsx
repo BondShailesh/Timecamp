@@ -2,8 +2,10 @@ import { Box, Button, Flex, Heading, Image, Input, Link, Text } from "@chakra-ui
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Privateroute from "../PrivateRoute/Privateroute";
 import { postautherror, postauthloading, postauthsucces } from "../redux/Authcontext/Action";
 
 const Signup = () => {
@@ -12,6 +14,12 @@ const Signup = () => {
   const [auth,setauth] = useState(false)
   const navigate = useNavigate()
 const dispatch = useDispatch()
+const responseGoogle = (response) => {
+  console.log(response);
+  const { profileObj, tokenId } = response;
+  localStorage.setItem("userid", JSON.stringify(tokenId))
+  navigate("/app")
+};
   const handleclick = () => {
     //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
     dispatch(postauthloading())
@@ -89,24 +97,22 @@ const dispatch = useDispatch()
               </Heading>
               <Text>Create an account and start with a free 14-day trial</Text>
               
-              <Button
-                padding="0.8rem 0.5rem"
-                background="#ffffff"
-                border="1px solid #e9e9e9"
-                background-size="7%"
-                background-position-x="6rem"
-                margin="1.3rem 0"
-                width="100%"
-                border-radius="8px"
-                font-size="14px"
-                line-height="1.33"
-                display="flex"
+              <Box>
+              <Heading
+                 fontSize= "16px"
+                  color= "#767676"
               >
-                <Image src="https://cdn.timecamp.com/res/css/images/btn_google_sign_in.png" w ="20px" marginRight="1rem" ></Image>
-                <Link font-weight="700" color="#767676" textDecoration="none">
-                  Log in google
-                </Link>
-              </Button>
+                All features. No credit card required
+              </Heading>
+          
+
+              <GoogleLogin
+                clientId="138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com"
+                // buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+              />
+              </Box>
               <Text>Or</Text>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
@@ -145,6 +151,8 @@ const dispatch = useDispatch()
               </span>
             </Box>
           </Box>
+
+          <Privateroute/>
    
     </div>
   );

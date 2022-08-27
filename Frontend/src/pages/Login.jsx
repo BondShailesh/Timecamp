@@ -30,8 +30,8 @@ const Login = () => {
   const responseGoogle = (response) => {
     console.log(response);
     const { profileObj, tokenId } = response;
-    setdata(profileObj);
-    settoken(tokenId);
+    localStorage.setItem("userid", JSON.stringify(tokenId))
+    navigate("/app")
   };
 
   // var data1 = localStorage.getItem("userid");
