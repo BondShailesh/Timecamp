@@ -11,5 +11,9 @@ function loadData(key) {
   function saveData(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
   }
+
+  function removeItem(){
+    localStorage.removeItem("loginid");
+  }
   
-  export { loadData, saveData };
+  export { loadData, saveData ,removeItem};

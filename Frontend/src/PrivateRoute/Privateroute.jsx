@@ -5,12 +5,12 @@ import { loadData } from "../utils/localstorage";
 const Privateroute = ({ children }) => {
   const data = loadData("userid");
   console.log(data);
-  if (data) {
-    // return <Navigate to="/auth/login"></Navigate>;
-    console.log(2222222,true);
+  if (!data) {
+    return <Navigate to="/auth/login"></Navigate>;
+    
   } else {
-    // return children;
-    console.log(2222222,false);
+    return children;
+    
   }
 };
 
