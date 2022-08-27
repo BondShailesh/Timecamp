@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {AiOutlineRight} from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 import ReportsSubSideBar from './ReportsSubSideBar';
 
 const SideBar = () => {
@@ -14,6 +15,10 @@ const SideBar = () => {
     { title: "Schedule ", src: "Calendar" },
     { title: "Search", src: "Search" },
     { title: "Analytics", src: "Chart" },
+    { title: "User", src: "Chart" },
+    { title: "Task", src: "Chart" },
+   
+    { title: "Project", src: "Chart" },
     { title: "Files ", src: "Folder", gap: true },
     { title: "Setting", src: "Setting" },
   ];
@@ -24,7 +29,7 @@ const SideBar = () => {
         className={` ${ open ? "w-72" : "w-20 "}   h-[100vw]  p-5  shadow-2xl pt-8 relative  duration-300`}  style = {{background : "#182244"}}
       >
         <img
-          src="https://app.timecamp.com//res/css/images/greenbranding/TC-logo.svg"
+          src="./src/Sauravcomp/control.png"
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
@@ -57,7 +62,8 @@ const SideBar = () => {
             <div className="flex gap-3" >  
               <img src={`./src/assets/${Menu.src}.png`} />
               <span className={`${!open && "hidden"} origin-left duration-200`} >
-                {Menu.title}
+               
+                <Link to = {Menu.title.toLowerCase()} > {Menu.title}</Link>
               </span>
               </div>
               {Menu.sub?<AiOutlineRight className={`${!open && "hidden"} origin-left duration-200`}/>:""}
