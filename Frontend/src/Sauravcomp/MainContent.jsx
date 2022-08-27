@@ -1,35 +1,57 @@
-import React, { useState } from "react";
-import { FaHourglassStart } from "react-icons/fa";
-import { MdExpandLess } from "react-icons/md";
+import React, { useEffect, useState } from "react";
+import { FaHourglassStart, FaRoute } from "react-icons/fa";
+import { MdArrowDropDown, MdExpandLess } from "react-icons/md";
 import { GoCalendar } from "react-icons/go";
-import { BsQuestionCircle } from "react-icons/bs";
-import { AiOutlineUserAdd, AiOutlineSetting } from "react-icons/ai";
+import {
+  BsBarChart,
+  BsFillCalendarCheckFill,
+  BsQuestionCircle,
+} from "react-icons/bs";
+import {
+  AiOutlineUserAdd,
+  AiOutlineSetting,
+  AiOutlineAreaChart,
+} from "react-icons/ai";
 import { RiRefreshLine } from "react-icons/ri";
 import Calendar from "react-calendar";
 import TimerComp from "./TimerComp";
 import Task from "./Task";
 import Tasks from "./Tasks";
-import axios from 'axios'
+import axios from "axios";
+import {
+  Avatar,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { BiData, BiTime } from "react-icons/bi";
+import { loadData, removeItem } from "../utils/localstorage";
+import { useNavigate } from "react-router-dom";
 const MainContent = () => {
+  const navigate = useNavigate();
   const [value, onChange] = useState(new Date());
   const [Bulkedit, setBulkedit] = useState(false);
   const [setrender, setsetrender] = useState(false);
   const [selectedtasks, setselectedtasks] = useState([]);
-  function handledeleteAll(){
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-selectedtasks.forEach((task) => {
+  const handlelogout = () => {
+    removeItem();
+    navigate("/auth/login");
+  };
+  function handledeleteAll() {
+    selectedtasks.forEach((task) => {
+      axios
+        .delete(`http://localhost:8080/userdata/${task}`)
+        .then((res) => {
+          console.log(res.data);
 
-  axios
-  .delete(`http://localhost:8080/userdata/${task}`)
-  .then((res) => {
-    console.log(res.data);
-
-    setsetrender(!setrender);
-  })
-  .catch((err) => console.error(err.message));
-    
+          setsetrender(!setrender);
+        })
+        .catch((err) => console.error(err.message));
     });
-
   }
   return (
     <div className="w-full ">
@@ -54,11 +76,54 @@ selectedtasks.forEach((task) => {
           <AiOutlineSetting />
           <BsQuestionCircle />
           <AiOutlineUserAdd />
-          <img
-            src={"https://via.placeholder.com/40"}
-            className={`rounded-full `}
-            alt="profile"
-          />
+          <Menu isOpen={isOpen} style={{ display: "flex" }}>
+            <MenuButton
+              variant="ghost"
+              mx={1}
+              py={[1, 2, 2]}
+              px={4}
+              borderRadius={5}
+              aria-label="Courses"
+              fontWeight="normal"
+              onMouseEnter={onOpen}
+              onMouseLeave={onClose}
+            >
+              <div style={{ display: "flex" }}>
+                <Avatar src="https://bit.ly/broken-link" />
+              </div>
+
+              {/* More {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon/>} */}
+            </MenuButton>
+            <MenuList
+              onMouseEnter={onOpen}
+              onMouseLeave={onClose}
+              style={{ fontWeight: "normal" }}
+            >
+              <MenuItem>
+                {" "}
+                <AiOutlineAreaChart
+                  style={{ fontSize: "20px", marginRight: "1rem" }}
+                />{" "}
+                Name
+              </MenuItem>
+              <MenuItem>
+                <BiTime style={{ fontSize: "20px", marginRight: "1rem" }} />
+                Browser name{" "}
+              </MenuItem>
+              <MenuItem>
+                <BsBarChart style={{ fontSize: "20px", marginRight: "1rem" }} />{" "}
+                Plugin
+              </MenuItem>
+
+              <MenuItem onClick={handlelogout}>
+                {" "}
+                <BsFillCalendarCheckFill
+                  style={{ fontSize: "20px", marginRight: "1rem" }}
+                />{" "}
+                Logout
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </div>
       </div>
       {/* bulk edit part */}
@@ -110,7 +175,9 @@ selectedtasks.forEach((task) => {
 
       <button
         className={`${!Bulkedit && "hidden"} ml-10 text-blue-800`}
-        onClick={() => {handledeleteAll()}}
+        onClick={() => {
+          handledeleteAll();
+        }}
       >
         delete
       </button>
