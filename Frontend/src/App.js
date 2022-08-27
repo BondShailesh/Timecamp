@@ -11,6 +11,8 @@ import RightNav from './Aadicomponent/Navbar/RightNav';
 import Demo from './Aadicomponent/demo/Demo';
 import Reviews from './Aadicomponent/reviews/Reviews';
 import Tracking from './Aadicomponent/tracking/Tracking';
+import Pricing from './Aadicomponent/pricing/Pricing';
+import Secure from './Aadicomponent/securepay/Secure';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
       <Demo/>
       <Reviews/>
       <Tracking/>
+      <Pricing/>
+      <Secure/>
     </div>
   );
 }

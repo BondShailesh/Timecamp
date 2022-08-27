@@ -32,40 +32,40 @@ const Tracking = () => {
         {/* left side */}
         <div className='tracking_right'>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/slack.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/slack.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/asana.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/asana.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/ical.png" alt="" />
+                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/ical.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/podio.png" alt="" />
+                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/podio.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/quickbooks.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/quickbooks.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/jira.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/jira.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/todoist.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/todoist.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/outlookcalendar.png" alt="" />
+                <img src="	https://cdn-m.timecamp.com/img/greenbranding/integrations/outlookcalendar.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/googlecalendar.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/googlecalendar.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/smartsheet.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/smartsheet.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
             <div>
-                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/xero.png" alt="" />
+                <img src="https://cdn-m.timecamp.com/img/greenbranding/integrations/xero.png" style={{backgroundColor:"white",padding:"27px",marginBottom:"5px",height:"120px",borderRadius:"25px"}} />
             </div>
         </div>
     </div>

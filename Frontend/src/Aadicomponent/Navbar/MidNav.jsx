@@ -18,6 +18,7 @@ import {BsCalendarDate} from 'react-icons/bs';
 export default function MidNav() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
+        <div>
         <Menu isOpen={isOpen} style={{display:"flex"}}>
             <MenuButton
                 variant="ghost"
@@ -78,5 +79,6 @@ export default function MidNav() {
               Blog
               
         </Menu>
+        </div>
     )
 }

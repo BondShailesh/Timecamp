@@ -19,3 +19,18 @@
 .demo_right img{
  height:500px
 }
+
+@media screen and (max-width: 800px) {
+    .demo_main{
+        display: flex;
+        flex-direction: column;
+    }
+    .demo_left{
+        padding-top: 3rem;
+        width:100%;
+        text-align: left;
+    }
+    .demo_right{
+        display: none;
+    }
+}
