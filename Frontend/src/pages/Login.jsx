@@ -78,8 +78,8 @@ console.log(store)
           <Link
             color="#286efb"
             textDecoration="none"
-            href="https://chakra-ui.com"
-            isExternal
+            href="http://localhost:3001/"
+           
           >
             <Image
               w="140px"
