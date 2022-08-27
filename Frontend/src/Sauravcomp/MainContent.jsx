@@ -1,16 +1,38 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { FaHourglassStart } from "react-icons/fa";
 import { MdExpandLess } from "react-icons/md";
 import { GoCalendar } from "react-icons/go";
 import { BsQuestionCircle } from "react-icons/bs";
 import { AiOutlineUserAdd, AiOutlineSetting } from "react-icons/ai";
 import { RiRefreshLine } from "react-icons/ri";
-import Calendar from 'react-calendar';
+import Calendar from "react-calendar";
 import TimerComp from "./TimerComp";
+import Task from "./Task";
+import Tasks from "./Tasks";
+import axios from 'axios'
 const MainContent = () => {
-    const [value, onChange] = useState(new Date());
+  const [value, onChange] = useState(new Date());
+  const [Bulkedit, setBulkedit] = useState(false);
+  const [setrender, setsetrender] = useState(false);
+  const [selectedtasks, setselectedtasks] = useState([]);
+  function handledeleteAll(){
+
+selectedtasks.forEach((task) => {
+
+  axios
+  .delete(`http://localhost:8080/userdata/${task}`)
+  .then((res) => {
+    console.log(res.data);
+
+    setsetrender(!setrender);
+  })
+  .catch((err) => console.error(err.message));
+    
+    });
+
+  }
   return (
-    <div className="w-full">
+    <div className="w-full ">
       {/* subscribe part */}
       <div className=" flex justify-center items-center gap-2 p-2 bg-[#F8F8F8] border-y-2 border-gray-300">
         <FaHourglassStart className="text-xl text-zinc-600" />{" "}
@@ -47,7 +69,7 @@ const MainContent = () => {
           </div>
           <div className="flex">
             <GoCalendar />
-            <Calendar onChange={onChange} value={value} />
+            <div>{/* <Calendar onChange={onChange} value={value} /> */}</div>
             <MdExpandLess className="rotate-180" />
           </div>
           <div>
@@ -61,17 +83,45 @@ const MainContent = () => {
             <p className="pl-2 pr-2">Calendar</p>
           </div>
           <div className="cursor-pointer flex  justify-center  pl-2 pr-2 border-2 rounded-lg  p-1">
-           
-              <RiRefreshLine />
-          
+            <RiRefreshLine />
           </div>
           <div>
-            <button className="cursor-pointer flex  justify-center  pl-2 pr-2 border-2 rounded-lg  p-1">Bulk Edit</button>
-
+            <button
+              className="cursor-pointer flex  justify-center  pl-2 pr-2 border-2 rounded-lg  p-1"
+              onClick={() => {
+                setBulkedit(!Bulkedit);
+              }}
+            >
+              Bulk Edit
+            </button>
           </div>
         </div>
       </div>
-      <TimerComp/>
+      <TimerComp
+        setrender={setrender}
+        setBulkedit={setBulkedit}
+        Bulkedit={Bulkedit}
+        setsetrender={setsetrender}
+        selectedtasks={selectedtasks}
+        setselectedtasks={setselectedtasks}
+      />
+
+      {/* //bulkedit onClick display */}
+
+      <button
+        className={`${!Bulkedit && "hidden"} ml-10 text-blue-800`}
+        onClick={() => {handledeleteAll()}}
+      >
+        delete
+      </button>
+      <Tasks
+        setrender={setrender}
+        selectedtasks={selectedtasks}
+        setselectedtasks={setselectedtasks}
+        setBulkedit={setBulkedit}
+        Bulkedit={Bulkedit}
+        setsetrender={setsetrender}
+      />
     </div>
   );
 };
