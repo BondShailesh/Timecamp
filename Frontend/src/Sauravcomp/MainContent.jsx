@@ -10,6 +10,7 @@ import TimerComp from "./TimerComp";
 import Task from "./Task";
 import Tasks from "./Tasks";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 const MainContent = () => {
   const [value, onChange] = useState(new Date());
   const [Bulkedit, setBulkedit] = useState(false);
@@ -41,9 +42,9 @@ selectedtasks.forEach((task) => {
         <button className="bg-orange-500  pl-2 pr-2 pt-1 pb-1 text-white p-1 rounded-md">
           Subscribe to Pro
         </button>
-        <button className=" border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
+       <Link to="bookdemo"> <button className=" border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
           Book a Demo
-        </button>
+        </button></Link>
       </div>
       {/* //Timesheet part */}
 

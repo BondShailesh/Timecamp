@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import {AiOutlineRight} from 'react-icons/ai'
+import {AiOutlineRight,AiOutlineUsergroupAdd,AiOutlineTags,AiOutlineFieldTime,AiOutlineFileDone,AiFillDashboard} from 'react-icons/ai'
+import {BsBarChart,BsFillPieChartFill} from 'react-icons/bs'
+import {MdComputer,MdOutlineEditNote} from 'react-icons/md'
+import {} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 import ReportsSubSideBar from './ReportsSubSideBar';
 
@@ -8,19 +11,19 @@ const SideBar = () => {
     const [subMenuOpen,setSubMenuOpen] = useState(false);
     console.log(subMenuOpen);
   const Menus = [
-    { title: 'Timesheet', src: 'Chart' },
-    { title: "Dashboard", src: "Chart_fill" ,gap: true},
-    { title: "Inbox", src: "Chat" },
-    { title: "Reports", src: "User", gap: true,sub:true },
-    { title: "Schedule ", src: "Calendar" },
-    { title: "Search", src: "Search" },
-    { title: "Analytics", src: "Chart" },
-    { title: "User", src: "Chart" },
-    { title: "Task", src: "Chart" },
+    { title: 'Timesheet', src:<BsBarChart/> },
+    { title: "Dashboard", src: <AiFillDashboard/>  ,gap: true},
+    { title: "Reports", src: <BsFillPieChartFill/> },
+    { title: "Computer Time", src: <MdComputer/> , gap: true,sub:true },
+    { title: "Schedule ", src:<AiOutlineFieldTime/>  },
+    
+    { title: "Tags", src:<AiOutlineTags/> },
+    { title: "Users", src: <AiOutlineUsergroupAdd/>  },
+    { title: "Task", src: <BsBarChart/> } ,
    
-    { title: "Project", src: "Chart" },
-    { title: "Files ", src: "Folder", gap: true },
-    { title: "Setting", src: "Setting" },
+    
+    { title: "Projects ", src: <AiOutlineFileDone/> , gap: true },
+    { title: "Attendance", src: <MdOutlineEditNote/>  },
   ];
 
   return (
@@ -28,16 +31,19 @@ const SideBar = () => {
       <div
         className={` ${ open ? "w-72" : "w-20 "}   h-[100vw]  p-5  shadow-2xl pt-8 relative  duration-300`}  style = {{background : "#182244"}}
       >
-        <img
-          src="./src/Sauravcomp/control.png"
+      <AiOutlineRight  className={`absolute cursor-pointer -right-3 bg-[#182244] text-white h-6 w-6 border-2 top-9 
+           border-gray-200 rounded-full  ${open && "rotate-180"}`}
+          onClick={() => setOpen(!open)}/>
+        {/* <img
+          src="./src/Sauravcomp/logo.svg"
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
-        />
+        /> */}
         <div className="flex gap-x-4 items-center">
           <img
-            src="./src/assets/logo.png"
-            className={`cursor-pointer duration-500 ${ open && "rotate-[360deg]"}`}
+            src="https://cdn-m.timecamp.com/img/greenbranding/press/timecamp-pr-materials/svg/colorIcon.svg"
+            className={`cursor-pointer w-10 duration-500 ${ open && "rotate-[360deg]"}`}
           />
           <h1
             className={`text-white origin-left font-medium text-xl duration-200 ${
@@ -60,7 +66,8 @@ const SideBar = () => {
               } `}
             >
             <div className="flex gap-3" >  
-              <img src={`./src/assets/${Menu.src}.png`} />
+            <div className="text-xl ">
+              {Menu.src}</div>
               <span className={`${!open && "hidden"} origin-left duration-200`} >
                
                 <Link to = {Menu.title.toLowerCase()} > {Menu.title}</Link>

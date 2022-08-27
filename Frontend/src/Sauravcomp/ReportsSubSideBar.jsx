@@ -1,19 +1,26 @@
 import React, { useState } from "react";
-import { AiOutlineRight } from "react-icons/ai";
-
+// import { AiOutlineRight } from "react-icons/ai";
+import {AiOutlineRight,AiOutlineUsergroupAdd,AiOutlineTags,AiOutlineFieldTime,AiOutlineFileDone,AiFillDashboard} from 'react-icons/ai'
+import {BsBarChart,BsFillPieChartFill} from 'react-icons/bs'
+import {MdComputer,MdOutlineEditNote} from 'react-icons/md'
 const ReportsSubSideBar = ({ display }) => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Timesheet", src: "Chart" },
-    { title: "Dashboard", src: "Chart_fill", gap: true },
-    { title: "Inbox", src: "Chat" },
-    { title: "Reports", src: "User", gap: true, sub: true },
-    { title: "Schedule ", src: "Calendar" },
-    { title: "Search", src: "Search" },
-    { title: "Analytics", src: "Chart" },
-    { title: "Files ", src: "Folder", gap: true },
-    { title: "Setting", src: "Setting" },
+    { title: 'Timesheet', src:<BsBarChart/> },
+    { title: "Dashboard", src: <AiFillDashboard/>  ,gap: true},
+    { title: "Reports", src: <BsFillPieChartFill/> },
+    { title: "Computer Time", src: <MdComputer/> , gap: true },
+    { title: "Schedule ", src:<AiOutlineFieldTime/>  },
+    
+    { title: "Tags", src:<AiOutlineTags/> },
+    { title: "Users", src: <AiOutlineUsergroupAdd/>  },
+    { title: "Task", src: <BsBarChart/> } ,
+   
+    
+    { title: "Projects ", src: <AiOutlineFileDone/> , gap: true },
+    { title: "Attendance", src: <MdOutlineEditNote/>  },
   ];
+
 
   return (
     <div
@@ -32,20 +39,15 @@ const ReportsSubSideBar = ({ display }) => {
               } `}
             >
               <div className="flex gap-3">
-                <img src={`./src/assets/${Menu.src}.png`} />
+              <div className="text-xl ">
+              {Menu.src}</div>
                 <span
                   className={`${!open && "hidden"} origin-left duration-200`}
                 >
                   {Menu.title}
                 </span>
               </div>
-              {Menu.sub ? (
-                <AiOutlineRight
-                  className={`${!open && "hidden"} origin-left duration-200`}
-                />
-              ) : (
-                ""
-              )}
+             
             </li>
             {Menu.gap ? <hr className="border-slate-500" /> : ""}
           </>
