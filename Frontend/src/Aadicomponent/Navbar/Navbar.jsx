@@ -1,42 +1,17 @@
 import React from 'react'
-import {
-    useDisclosure,
-    MenuItem,
-    Menu,
-    MenuButton,
-    MenuList,
-} from "@chakra-ui/react"
-import { MdArrowDropDown } from 'react-icons/md';
+import MidNav from './MidNav'
+import RightNav from './RightNav'
 
-
-export default function Navbar() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    return (
-        <Menu isOpen={isOpen}>
-            <MenuButton
-                variant="ghost"
-                mx={1}
-                py={[1, 2, 2]}
-                px={4}
-                borderRadius={5}
-               
-                aria-label="Courses"
-                fontWeight="normal"
-                onMouseEnter={onOpen}
-                onMouseLeave={onClose}
-            >
-                <div style={{display:"flex"}}>
-                Features <MdArrowDropDown/>
-                </div>
-               
-                {/* More {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon/>} */}
-            </MenuButton>
-            <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                <MenuItem>Menu Item 1</MenuItem>
-                <MenuItem>Menu Item 2</MenuItem>
-                <MenuItem>Menu Item 3</MenuItem>
-            </MenuList>
-            hello
-        </Menu>
-    )
+const Navbar = () => {
+  return (
+    <div className="box_navbar">
+        <div className='main_navbar'>
+            <img src="https://cdn-m.timecamp.com/img/greenbranding/colorLogo.svg" alt="" />
+            <MidNav/>
+            <RightNav/>
+        </div>
+    </div>
+  )
 }
+
+export default Navbar

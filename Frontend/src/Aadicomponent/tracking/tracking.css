@@ -1,0 +1,46 @@
+.tracking_top{
+    margin-top: 5rem;
+    background-color: #F3F3F3;
+    padding:4rem;
+    justify-content: space-around;
+    display: flex;
+    gap:3rem;
+}
+.p{
+    color: #25CF60;}
+
+.tracking_left{
+    
+    text-align: left;
+ width:40%;
+
+}
+
+.tracking_right{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 20px;
+    
+}
+
+.tracking_right img{
+    height: 60px;
+    margin-right: 50px;
+    
+}
+
+.white{
+    background-color: white;
+     margin-right: 30px;
+}
+
+@media screen and (max-width: 800px){
+    .tracking_top{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tracking_left{
+        width:100%;
+    }
+}

@@ -7,6 +7,12 @@ import Manager from './Aadicomponent/manager/Manager';
 import Enterprise from './Aadicomponent/enterprise/Enterprise';
 import Hr from './Aadicomponent/hr/Hr';
 import Navbar from './Aadicomponent/Navbar/Navbar';
+import RightNav from './Aadicomponent/Navbar/RightNav';
+import Demo from './Aadicomponent/demo/Demo';
+import Reviews from './Aadicomponent/reviews/Reviews';
+import Tracking from './Aadicomponent/tracking/Tracking';
+import Pricing from './Aadicomponent/pricing/Pricing';
+import Secure from './Aadicomponent/securepay/Secure';
 
 function App() {
   useEffect(()=>{
@@ -21,12 +27,17 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-   {/* <Brands/>
+      <Brands/>
       <Track/>
       <Employees/>
       <Manager/>
       <Enterprise/>
-      <Hr/> */}
+      <Hr/>
+      <Demo/>
+      <Reviews/>
+      <Tracking/>
+      <Pricing/>
+      <Secure/>
     </div>
   );
 }

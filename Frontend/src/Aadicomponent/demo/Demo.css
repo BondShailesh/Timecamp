@@ -1,0 +1,36 @@
+.demo_main{
+    margin-top: 6rem;
+    display:flex ;
+    color: white;
+    background-color: black;
+    height:500px;
+    justify-content: space-between;
+}
+
+.demo_left{
+    padding-top: 3rem;
+    padding-left: 14rem;
+    width:48%;
+    text-align: left;
+}
+.demo_right{
+ margin-top: 60px;   
+}
+.demo_right img{
+ height:500px
+}
+
+@media screen and (max-width: 800px) {
+    .demo_main{
+        display: flex;
+        flex-direction: column;
+    }
+    .demo_left{
+        padding-top: 3rem;
+        width:100%;
+        text-align: left;
+    }
+    .demo_right{
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+.Secure_box{
+   border-radius: 20px;
+    background-color: #F7B801;
+    width: 60%;;
+    margin: auto;
+    padding: 25px 50px 75px 100px;
+    color: black;
+}
+.button_input_box{
+    display: flex;
+}
+
+@media screen and (max-width: 800px){
+    .button_input_box{
+        display: flex;
+        flex-direction: column;
+    }
+}

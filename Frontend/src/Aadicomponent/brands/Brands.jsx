@@ -55,7 +55,7 @@ const Brands = () => {
                   <br />
                   <br />
                   <div  className="top_project_button">
-                        <Button  colorScheme='whatsapp'>Start tracking time</Button>
+                        <Button  colorScheme='whatsapp' zIndex="0">Start tracking time</Button>
                         <div style={{display:'flex'}}>
                            <div style={{paddingTop:"1rem",display:"flex"}}>
                            <p style={{color:"grey"}}>Or sign up with:</p> 
@@ -77,7 +77,7 @@ const Brands = () => {
                <h2 style={{fontWeight:"bold"}}>Adam Wagner, Co-owner and Chief Strategy Officer</h2>
             </div>
             <div>
-               <p>„TimeCamp proved to be an essential management tool that gives us clear insight into a project’s efficiency and helps to avoid an overblown workload for our team.”</p>
+               <p>TimeCamp proved to be an essential management tool that gives us clear insight into a project’s efficiency and helps to avoid an overblown workload for our team.”</p>
             </div>
           
                <img src="https://cdn-m.timecamp.com/img/raindrop_logo.svg" style={{height:"20px"}} />

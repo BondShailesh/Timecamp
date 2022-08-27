@@ -2,7 +2,10 @@
     font-family:sans-serif;
     
 }
-
+.top_div{
+    display: flex;
+    justify-content: space-around;
+}
 .top_brand{
     display: flex;
     justify-content: space-around;
