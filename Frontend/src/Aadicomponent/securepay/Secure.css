@@ -11,6 +11,9 @@
 }
 
 @media screen and (max-width: 800px){
+    .Secure_box{
+        width: 100%;
+    }
     .button_input_box{
         display: flex;
         flex-direction: column;
