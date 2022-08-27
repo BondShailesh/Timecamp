@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const RightNav = () => {
   const navigate = useNavigate()
   const handleclick = ()=>{
-   navigate("/auth/login")
+   navigate("/app")
   }
   
   return (

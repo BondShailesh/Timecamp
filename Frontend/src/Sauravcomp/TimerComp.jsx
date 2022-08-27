@@ -159,7 +159,7 @@ endTime:endduration,
               <div className="bg-red-600 p-2  flex items-center gap-2 cursor-pointer rounded-md text-slate-200 mr-10 pl-4 pr-4" onClick={() =>{
                 
                 
-              stop()
+              // stop()
                 setistimerSTrated(false)
               
               
