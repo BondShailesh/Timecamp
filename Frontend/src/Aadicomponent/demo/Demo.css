@@ -27,6 +27,7 @@
     }
     .demo_left{
         padding-top: 3rem;
+        padding-left: 10px;
         width:100%;
         text-align: left;
     }
