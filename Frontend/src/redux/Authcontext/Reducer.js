@@ -5,6 +5,7 @@ const productInitalState = {
   loading: false,
   error: false,
   data: [],
+  auth:false
 };
 
 const Reducer = (state = productInitalState,action) => {
@@ -18,7 +19,8 @@ const Reducer = (state = productInitalState,action) => {
     case POST_AUTH_SUCCES :
       return {
           ...state,
-          data:[...state.data,payload]
+          data:[...state.data,payload],
+          auth:true
       }
     case POST_AUTH_ERROR :
       return {
