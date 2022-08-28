@@ -3,6 +3,7 @@ import Brands from '../Aadicomponent/brands/Brands'
 import Demo from '../Aadicomponent/demo/Demo'
 import Employees from '../Aadicomponent/Employes/Employees'
 import Enterprise from '../Aadicomponent/enterprise/Enterprise'
+import Footer from '../Aadicomponent/footer/Footer'
 import Hr from '../Aadicomponent/hr/Hr'
 import Manager from '../Aadicomponent/manager/Manager'
 import Navbar from '../Aadicomponent/Navbar/Navbar'
@@ -27,6 +28,7 @@ const Home = () => {
       <Tracking/>
       <Pricing/>
       <Secure/>
+      <Footer/>
     </div>
   )
 }
