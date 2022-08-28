@@ -33,7 +33,7 @@
 
     @media screen and (max-width: 800px){
         .pricing{
-            width: 80%;
+            width: 100%;
             margin:auto;
             align-items: center;
             align-content: center;
@@ -42,7 +42,10 @@
             display: grid;
             grid-template-columns: repeat(2,1fr);
         }
-        .tab{
-           width: 100%; 
-        }
+       .box{
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+       }
+        
     }
