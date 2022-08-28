@@ -14,6 +14,12 @@ function loadData(key) {
 
   function removeItem(){
     localStorage.removeItem("loginid");
+    
+  }
+
+  function removedata(){
+    localStorage.removeItem("userid");
+    localStorage.removeItem("loginid");
   }
   
-  export { loadData, saveData ,removeItem};
+  export { loadData, saveData ,removeItem,removedata};
