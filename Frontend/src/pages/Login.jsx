@@ -1,67 +1,75 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
   Box,
   Button,
   Flex,
   Heading,
   Image,
   Input,
-  Link,
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import GoogleLogin from "react-google-login";
 import axios, { Axios } from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { postautherror, postauthloading, postauthsucces, postproductloading } from "../redux/Authcontext/Action";
-import  store from "../redux/store";
+import {
+  postautherror,
+  postauthloading,
+  postauthsucces,
+  postproductloading,
+} from "../redux/Authcontext/Action";
+import store from "../redux/store";
 import { loadData } from "../utils/localstorage";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // client id = 138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com
 // client secret = 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
 const Login = () => {
-  const store = useSelector((store)=>store)
-  const [auth,setauth] = useState(false)
+  const store = useSelector((store) => store);
+  const [auth, setauth] = useState(false);
   const [data, setdata] = useState({});
   const [token, settoken] = useState();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const responseGoogle = (response) => {
     console.log(response);
     const { profileObj, tokenId } = response;
-    localStorage.setItem("userid", JSON.stringify(tokenId))
-    navigate("/app")
+    localStorage.setItem("userid", JSON.stringify(tokenId));
+    navigate("/app");
   };
 
   // var data1 = localStorage.getItem("userid");
   // data1 = JSON.parse(data);
   // console.log(222,data1);
-console.log(store)
+  
   const handleclick = () => {
-     
-    const d = loadData("userid")
-    console.log(d);
+    const d = loadData("userid");
+  
 
-   
     //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
-    dispatch(postauthloading())
+    dispatch(postauthloading());
     axios
       .get(`http://localhost:8080/usercred/${d}`)
-      .then((res) =>{
-        localStorage.setItem("loginid", JSON.stringify(res.data[0]._id))
-     
-       dispatch(postauthsucces(res.data._id))
-        if(res.data[0]._id){
-          setauth(true)
-        navigate("/app")
-        }else{
-          navigate("/auth/login")
+      .then((res) => {
+        localStorage.setItem("loginid", JSON.stringify(res.data[0]._id));
+
+        dispatch(postauthsucces(res.data._id));
+        if (res.data[0]._id) {
+          setauth(true);
+          navigate("/app");
+        } else {
+          console.log("norrrrr");
+          navigate("/auth/login");
+          
         }
-      }
-      ).catch((e)=>{
-        dispatch(postautherror())
       })
+      .catch((e) => {
+        dispatch(postautherror());
+      });
   };
 
   return (
@@ -75,19 +83,20 @@ console.log(store)
         top="0"
       >
         <Box>
-          <Link
+          <Box
             color="#286efb"
             textDecoration="none"
             href="http://localhost:3001/"
-           
           >
-            <Image
-              w="140px"
-              h="40px"
-              src="https://app.timecamp.com//res/css/images/greenbranding/TC-logo.svg"
-              alt="Dan Abramov"
-            />
-          </Link>
+            <Link to="/">
+              <Image
+                w="140px"
+                h="40px"
+                src="https://app.timecamp.com//res/css/images/greenbranding/TC-logo.svg"
+                alt="Dan Abramov"
+              />
+            </Link>
+          </Box>
         </Box>
       </Box>
       {/* main box */}
@@ -135,15 +144,16 @@ console.log(store)
             </Box>
             <Box>
               <Link
-                href="https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
-                padding="10px 50px"
-                borderRadius="26px"
-                background="#25cf60"
-                color="#fff"
-                width="fit-content"
-                display="flex"
-                textDecoration="none"
-                margin="0.5rem 0.5rem"
+                to="/auth/login"
+                // href="https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
+                // padding="10px 50px"
+                // borderRadius="26px"
+                // background="#25cf60"
+                // color="#fff"
+                // width="fit-content"
+                // display="flex"
+                // textDecoration="none"
+                // margin="0.5rem 0.5rem"
               >
                 <Image
                   src="https://cdn.timecamp.com/res/css/images/chrome-icon-button.1661428039.png"
@@ -228,14 +238,14 @@ console.log(store)
               ></Input>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
-              <Link
+              <Box
                 fontFamily=" NunitoSans,sans-serif"
                 marginBottom="2rem"
                 fontSize="14px"
                 color="#25cf60"
               >
-                Forgotten password
-              </Link>
+                <Link to="/auth/login">Forgotten password</Link>
+              </Box>
             </Box>
             <Box margin="1.3rem 0" font-size="10px">
               <Button
@@ -250,15 +260,19 @@ console.log(store)
                 Log in
               </Button>
             </Box>
-            <Box>
+            <Flex justifyContent="center">
               <span>
-                <Link color="#25cf60">No account? Sign up</Link>
+                <Box color="#25cf60">
+                  <Link to="/auth/signup">No account? Sign up</Link>
+                </Box>
               </span>
               <span>or</span>
               <span>
-                <Link color="#25cf60">Log in with SSO</Link>
+                <Box color="#25cf60">
+                  <Link to="/auth/login">Login with sso</Link>
+                </Box>
               </span>
-            </Box>
+            </Flex>
           </Box>
         </Flex>
       </Box>
