@@ -19,6 +19,14 @@ const Allroute = () => {
       <Routes>
         <Route path="/auth/login" element={<Login/>}></Route>
         <Route path="/auth/signup" element={<Signup/>}></Route>
+
+       <Route path ="/" element = {<Home/>} ></Route>
+       <Route path= "/app" element ={<Main/>}></Route>
+       <Route path= "/app/bookdemo" element ={<BookDemo/>}></Route>
+       <Route path="/app/user" element = {<User/>} ></Route>
+       <Route path="/app/task" element = {<Task/>} ></Route>
+       <Route path="/app/project" element = {<Project/>} ></Route>
+
         <Route path="/" element={<Home />}></Route>
         <Route
           path="/app"
@@ -28,10 +36,8 @@ const Allroute = () => {
             </Privateroute>
           }
         ></Route>
-        <Route path="/bookdemo" element={<BookDemo />}></Route>
-        <Route path="/app/user" element={<User />}></Route>
-        <Route path="/app/task" element={<Task />}></Route>
-        <Route path="/app/project" element={<Project />}></Route>
+    
+
       </Routes>
     </div>
   );

@@ -17,6 +17,10 @@ import Calendar from "react-calendar";
 import TimerComp from "./TimerComp";
 import Task from "./Task";
 import Tasks from "./Tasks";
+
+
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 import {
   Avatar,
@@ -29,6 +33,7 @@ import {
 import { BiData, BiTime } from "react-icons/bi";
 import { loadData, removeItem } from "../utils/localstorage";
 import { useNavigate } from "react-router-dom";
+
 const MainContent = () => {
   const navigate = useNavigate();
   const [value, onChange] = useState(new Date());
@@ -63,9 +68,9 @@ const MainContent = () => {
         <button className="bg-orange-500  pl-2 pr-2 pt-1 pb-1 text-white p-1 rounded-md">
           Subscribe to Pro
         </button>
-        <button className=" border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
+       <Link to="bookdemo"> <button className=" border-2 pl-2 pr-2 pt-1 pb-1 rounded-md">
           Book a Demo
-        </button>
+        </button></Link>
       </div>
       {/* //Timesheet part */}
 
