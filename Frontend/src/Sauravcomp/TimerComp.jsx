@@ -33,7 +33,7 @@ const TimerComp = ({setrender, setsetrender}) => {
     settime(current);
     console.log(current, "ct");
   }
- document.title = istimerSTrated ?"Time Camp | Timesheet":` ${hours}:${minutes} :${seconds} | TimeCamp `
+ document.title = !istimerSTrated ?"Time Camp | Timesheet":` ${hours}:${minutes} :${seconds} | TimeCamp `
   useEffect(() => {
     date();
   }, []);
