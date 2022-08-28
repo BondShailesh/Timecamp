@@ -18,7 +18,7 @@ const SideBar = () => {
     { title: "Schedule ", src:<AiOutlineFieldTime/>  },
     
     { title: "Tags", src:<AiOutlineTags/> },
-    { title: "Users", src: <AiOutlineUsergroupAdd/>  },
+    { title: "User", src: <AiOutlineUsergroupAdd/>  },
     { title: "Task", src: <BsBarChart/> } ,
    
     

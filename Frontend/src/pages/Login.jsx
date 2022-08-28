@@ -48,7 +48,9 @@ const Login = () => {
   
   const handleclick = () => {
     const d = loadData("userid");
-  
+  if (d===null){
+    return alert("please sign up")
+  }
 
     //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
     dispatch(postauthloading());

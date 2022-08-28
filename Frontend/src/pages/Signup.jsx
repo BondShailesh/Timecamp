@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { Link,useNavigate } from "react-router-dom";
 
 
+
 import {
   postautherror,
   postauthloading,
@@ -163,7 +164,7 @@ const Signup = () => {
         </Box>
       </Box>
 
-      {/* <Privateroute/> */}
+     
     </div>
   );
 };
