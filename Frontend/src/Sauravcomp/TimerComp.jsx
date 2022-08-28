@@ -43,10 +43,10 @@ const TimerComp = ({setrender, setsetrender}) => {
   function handlePost (task){
     axios.post("http://localhost:8080/userdata",{
 
-task:task,
-note:note,
-startTime:startduration,
-endTime:endduration,
+task:task || "Select Task",
+note:note || "No Notes Added",
+startTime:startduration || time,
+endTime:endduration || time,
     }).then((response) => {console.log(response.data)
     
     setsetrender(!setrender)
@@ -120,7 +120,7 @@ endTime:endduration,
         {!starttimer ? (
           <button
             className="text-blue-700 font-semibold"
-            onClick={() => setstarttimer(false)}
+            onClick={() => setstarttimer(!starttimer)}
           >
             Start Timer
           </button>
@@ -134,33 +134,40 @@ endTime:endduration,
           </button>
         )}
 
-        {starttimer ? (
-          <button className="bg-green-600 p-2 rounded-md text-slate-200 mr-10 pl-4 pr-4">
+        {!starttimer ? (
+          <button className="bg-green-600 p-2 rounded-md text-slate-200 mr-10 pl-4 pr-4" onClick={()=>{
+
+handlePost(task)
+setstarttimer(!starttimer)
+
+            
+          }}>
             Add Time Entry
           </button>
         ) : (
           <>
 
-            {istimerSTrated ? (
+            {!istimerSTrated ? (
+              <div>
               <button className="bg-green-600 p-2 rounded-md text-slate-200 mr-10 pl-4 pr-4" onClick={() =>{
                 
               
                 start()
-                setistimerSTrated(false)
+                setistimerSTrated(!istimerSTrated)
               
               }
               
               }>
                 Start Timer
-              </button>
+              </button></div>
             ) : (
               <div className="flex gap-4 items-center">
               <div className="border-2 rounded p-2">{hours}:{minutes} :{seconds}</div>
               <div className="bg-red-600 p-2  flex items-center gap-2 cursor-pointer rounded-md text-slate-200 mr-10 pl-4 pr-4" onClick={() =>{
                 
-                
-              // stop()
-                setistimerSTrated(false)
+                // reset()
+              stop()
+                setistimerSTrated(!istimerSTrated)
               
               
               }}>
