@@ -46,17 +46,25 @@ const MainContent = () => {
     removeItem();
     navigate("/auth/login");
   };
+  const handleAccount = async()=>{
+    const data = loadData("userid")
+await axios.delete(`http://localhost:8080/userdata/${data}`);
+removeItem()
+await axios.delete(`http://localhost:8080/usercred/${data}`);
+removeItem()
+navigate("/auth/signup");
+  }
   function handledeleteAll() {
-    selectedtasks.forEach((task) => {
+    for (let i = 0; i < selectedtasks.length; i++) {
       axios
-        .delete(`http://localhost:8080/userdata/${task}`)
+        .delete(`http://localhost:8080/userdata/${selectedtasks[i]}`)
         .then((res) => {
           console.log(res.data);
 
           setsetrender(!setrender);
         })
         .catch((err) => console.error(err.message));
-    });
+    }
   }
   return (
     <div className="w-full ">
@@ -126,6 +134,13 @@ const MainContent = () => {
                   style={{ fontSize: "20px", marginRight: "1rem" }}
                 />{" "}
                 Logout
+              </MenuItem>
+              <MenuItem onClick={handleAccount}>
+                {" "}
+                <BsFillCalendarCheckFill
+                  style={{ fontSize: "20px", marginRight: "1rem" }}
+                />{" "}
+          Delete Acc
               </MenuItem>
             </MenuList>
           </Menu>

@@ -4,6 +4,7 @@ import {FaStop} from 'react-icons/fa'
 import SearchPopUp from "./SearchPopUp";
 import { useStopwatch } from "react-timer-hook";
 import axios from "axios";
+import { loadData } from "../utils/localstorage";
 
 const TimerComp = ({setrender, setsetrender}) => {
   const {
@@ -41,12 +42,14 @@ const TimerComp = ({setrender, setsetrender}) => {
   const [task, settask] = useState("");
 
   function handlePost (task){
+    const data = loadData("userid")
     axios.post("http://localhost:8080/userdata",{
 
 task:task || "Select Task",
 note:note || "No Notes Added",
 startTime:startduration || time,
 endTime:endduration || time,
+cred:data
     }).then((response) => {console.log(response.data)
     
     setsetrender(!setrender)
@@ -165,10 +168,9 @@ setstarttimer(!starttimer)
               <div className="border-2 rounded p-2">{hours}:{minutes} :{seconds}</div>
               <div className="bg-red-600 p-2  flex items-center gap-2 cursor-pointer rounded-md text-slate-200 mr-10 pl-4 pr-4" onClick={() =>{
                 
-                // reset()
-              stop()
-                setistimerSTrated(!istimerSTrated)
-              
+                reset()
+                pause()
+                  setistimerSTrated(!istimerSTrated)             
               
               }}>
               <FaStop/>

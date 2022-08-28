@@ -8,6 +8,12 @@ function loadData(key) {
     }
   }
   
+  function removedata(){
+    localStorage.removeItem("userid");
+    localStorage.removeItem("loginid");
+  }
+
+
   function saveData(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
   }
@@ -16,4 +22,4 @@ function loadData(key) {
     localStorage.removeItem("loginid");
   }
   
-  export { loadData, saveData ,removeItem};
+  export { removedata, loadData, saveData ,removeItem};

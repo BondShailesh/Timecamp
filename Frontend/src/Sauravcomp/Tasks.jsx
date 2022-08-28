@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { loadData } from "../utils/localstorage";
 import Task from "./Task";
 
 const Tasks = ({setrender, setsetrender, setBulkedit,Bulkedit,selectedtasks, setselectedtasks}) => {
   // setBulkedit={setBulkedit} Bulkedit={Bulkedit} 
   const [tasks, settasks] = useState([]);
   function fetchdata() {
-    axios.get("http://localhost:8080/userdata/").then((res) => {
+    const data = loadData("userid")
+    axios.get(`http://localhost:8080/userdata/${data}`).then((res) => {
       console.log(res.data);
       settasks(res.data);
     });

@@ -24,7 +24,7 @@ const Task = ({ name, note, start,Handledelete, end ,id,Bulkedit,selectedtasks, 
         <p>-</p>
         <p>{end}</p>
       </div>
-      <p>{"duration"}</p>
+      <p>{`${start}to ${end}`}</p>   
       <div>
       {false?
       
