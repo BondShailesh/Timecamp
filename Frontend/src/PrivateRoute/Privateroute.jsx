@@ -5,7 +5,7 @@ import { loadData } from "../utils/localstorage";
 const Privateroute = ({ children }) => {
   const data = loadData("userid");
   console.log(data);
-  if (!data) {
+  if (data===null) {
     return <Navigate to="/auth/login"></Navigate>;
     
   } else {

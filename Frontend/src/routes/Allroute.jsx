@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Project from "../pages/Project";
 import Signup from "../pages/Signup";
+import Tags from "../pages/Tags";
 import User from "../pages/User";
 import Privateroute from "../PrivateRoute/Privateroute";
 import BookDemo from "../Sauravcomp/BookDemo";
@@ -21,18 +22,19 @@ const Allroute = () => {
         <Route path="/auth/signup" element={<Signup/>}></Route>
 
        <Route path ="/" element = {<Home/>} ></Route>
-       <Route path= "/app" element ={<Main/>}></Route>
+      
        <Route path= "/app/bookdemo" element ={<BookDemo/>}></Route>
        <Route path="/app/user" element = {<User/>} ></Route>
        <Route path="/app/task" element = {<Task/>} ></Route>
        <Route path="/app/project" element = {<Project/>} ></Route>
+       <Route path="/app/tags" element = {<Tags/>} ></Route>
 
         <Route path="/" element={<Home />}></Route>
         <Route
           path="/app"
           element={
             <Privateroute>
-              <Main />
+              <Main/>
             </Privateroute>
           }
         ></Route>
