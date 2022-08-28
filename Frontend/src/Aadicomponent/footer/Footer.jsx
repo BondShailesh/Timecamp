@@ -4,187 +4,113 @@ import {
   Heading,
   Image,
   Link,
-  ListItem,
+  p,
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
 import React from "react";
+import "./Footer.css"
 
 const Footer = () => {
   return (
     <div>
-      <Box padding="5rem" margin="auto">
-        <Flex justifyContent="center" gap="2rem">
-          <Box>
+      <div >
+        <div className="main_footer">
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
               Product
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Features</ListItem>
-              <ListItem>Integration</ListItem>
-              <ListItem>Applications</ListItem>
-              <ListItem>Product Application</ListItem>
-              <ListItem>Customer Services</ListItem>
-              <ListItem>Self Hosting</ListItem>
-            </UnorderedList>
-          </Box>
-          <Box>
+              <p>Features</p>
+              <p>Integration</p>
+              <p>Applications</p>
+              <p>Product Application</p>
+              <p>Customer Services</p>
+              <p>Self Hosting</p>
+          </div>
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
               Support
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Support</ListItem>
-              <ListItem>Knowledge base</ListItem>
-              <ListItem>Developers api</ListItem>
-              <ListItem>Server Status</ListItem>
-            </UnorderedList>
-          </Box>
-          <Box>
+              <p>Support</p>
+              <p>Knowledge base</p>
+              <p>Developers api</p>
+              <p>Server Status</p>
+          
+          </div>
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
-              Support
+             Integrations
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Trello</ListItem>
-              <ListItem>Monday.com</ListItem>
-              <ListItem>Google Calender</ListItem>
-              <ListItem>Asna</ListItem>
-              <ListItem>Jira</ListItem>
-              <ListItem>All integration</ListItem>
-            </UnorderedList>
-          </Box>
-          <Box>
+           
+              <p>Trello</p>
+              <p>Monday.com</p>
+              <p>Google Calender</p>
+              <p>Asna</p>
+              <p>Jira</p>
+              <p>All integration</p>
+            
+          </div>
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
               Resourses
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Contact</ListItem>
-              <ListItem>Hey space</ListItem>
-              <ListItem>About us</ListItem>
-              <ListItem>Press</ListItem>
-              <ListItem>Become a partner</ListItem>
-            </UnorderedList>
-          </Box>
-          <Box>
+           
+              <p>Contact</p>
+              <p>Hey space</p>
+              <p>About us</p>
+              <p>Press</p>
+              <p>Become a partner</p>
+            
+          </div>
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
               Calculators
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Profit margin calculator</ListItem>
-              <ListItem>Online Timer</ListItem>
-              <ListItem>Overtime Calculator</ListItem>
-              <ListItem>Roi calculator</ListItem>
-              <ListItem>Time card calculator</ListItem>
-            </UnorderedList>
-          </Box>
-          <Box>
+           
+              <p>Profit margin calculator</p>
+              <p>Online Timer</p>
+              <p>Overtime Calculator</p>
+              <p>Roi calculator</p>
+              <p>Time card calculator</p>
+            
+          </div>
+          <div>
             <Heading
               fontWeight="800"
               fontSize="18px"
-              marginBottom="0"
-              color="#1b1b20"
-              marginRight=" 3.5rem"
+              marginBottom="2rem"
             >
               Legal
             </Heading>
-            <UnorderedList
-              listStyleType="none"
-              lineHeight="2rem"
-              textAlign="start"
-              paddingLeft="0"
-              marginTop="30px"
-              fontSize="15px"
-              fontWeight="600"
-              opacity=".6"
-              fontFamily="nunito sans sans-serif"
-            >
-              <ListItem>Terms</ListItem>
-              <ListItem>Privacy</ListItem>
-              <ListItem>Security</ListItem>
-            </UnorderedList>
-          </Box>
-        </Flex>
+           
+              <p>Terms</p>
+              <p>Privacy</p>
+              <p>Security</p>
+            
+          </div>
+        </div>
 
-        <Box marginTop="5rem">
+       <div marginTop="5rem">
           <Flex justifyContent="center" alignItems="center">
             <Link padding="1rem" href="">
               <Image src="https://cdn-m.timecamp.com/img/greenbranding/facebook.svg"></Image>
@@ -196,8 +122,8 @@ const Footer = () => {
               <Image src="https://cdn-m.timecamp.com/img/greenbranding/twitter.svg"></Image>
             </Link>
           </Flex>
-        </Box>
-        <Box>
+        </div> 
+        <div>
           <Text
             fontSize="14px"
             fontWeight="600"
@@ -209,8 +135,8 @@ const Footer = () => {
           <Text fontSize="11px" fontWeight="400" opacity=".6">
             We use cookies. Click here to learn more
           </Text>
-        </Box>
-      </Box>
+        </div> 
+      </div>
     </div>
   );
 };
