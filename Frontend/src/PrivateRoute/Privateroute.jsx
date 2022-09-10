@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { loadData } from "../utils/localstorage";
 
 const Privateroute = ({ children }) => {
-  const data = loadData("userid");
+  const data = loadData("loginid");
   console.log(data);
   if (data===null) {
     return <Navigate to="/auth/login"></Navigate>;

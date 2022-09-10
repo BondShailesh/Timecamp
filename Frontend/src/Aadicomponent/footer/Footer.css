@@ -1,0 +1,27 @@
+@media screen and (max-width: 800px){
+    .main_footer{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    
+}
+
+.main_footer{
+    display: flex;
+    width:80%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   justify-content: space-around;
+   margin: auto;
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 30px;
+}
+p{
+    color: grey;
+}
+p:hover{
+    /* color: yellow; */
+    cursor: pointer;
+}
+

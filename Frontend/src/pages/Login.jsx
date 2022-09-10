@@ -23,9 +23,8 @@ import {
 } from "../redux/Authcontext/Action";
 import store from "../redux/store";
 import { loadData } from "../utils/localstorage";
-import { Link, useNavigate } from "react-router-dom";
-// client id = 138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com
-// client secret = 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
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
 const Login = () => {
   const store = useSelector((store) => store);
   const [auth, setauth] = useState(false);
@@ -35,38 +34,28 @@ const Login = () => {
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const responseGoogle = (response) => {
-    console.log(response);
-    const { profileObj, tokenId } = response;
-    //  localStorage.setItem("userid", JSON.stringify(tokenId));//
-    navigate("/app");
-  };
+  // const responseGoogle = (response) => {
+  //   navigate("/app");
+  //   console.log("hlhlk");
+   
+  //   const { profileObj, tokenId } = response;   
+  // };
 
-  // var data1 = localStorage.getItem("userid");
-  // data1 = JSON.parse(data);
-  // console.log(222,data1);
-  
   const handleclick = () => {
-    const d = loadData("userid");
-  if (d===null){
-    return alert("please sign up")
-  }
-
-    //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
     dispatch(postauthloading());
     axios
-      .get(`http://localhost:8080/usercred/${d}`)
+      .get(`https://dailypurpose.herokuapp.com/usercred/${email}`)
       .then((res) => {
-        localStorage.setItem("loginid", JSON.stringify(res.data[0]._id));
-
-        dispatch(postauthsucces(res.data._id));
-        if (res.data[0]._id) {
+        if(res.data[0].password!=password){
+          alert("Please provide right credential");
+          console.log(password,res.data[0].password);
+        }else if (res.data[0]._id){
+      localStorage.setItem("loginid", JSON.stringify(res.data[0]._id));
+          dispatch(postauthsucces(res.data._id));
           setauth(true);
           navigate("/app");
         } else {
-          console.log("norrrrr");
           navigate("/auth/login");
-          
         }
       })
       .catch((e) => {
@@ -219,8 +208,8 @@ const Login = () => {
               <GoogleLogin
                 clientId="138552057700-esoue5q74o0ijrd22c5uvo3h1p435vm3.apps.googleusercontent.com"
                 // buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
+                // onSuccess={responseGoogle}
+                // onFailure={responseGoogle}
               />
 
               <Text>Or</Text>

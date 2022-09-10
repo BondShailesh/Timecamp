@@ -42,8 +42,8 @@ const TimerComp = ({setrender, setsetrender}) => {
   const [task, settask] = useState("");
 
   function handlePost (task){
-    const data = loadData("userid")
-    axios.post("http://localhost:8080/userdata",{
+    const data = loadData("loginid")
+    axios.post("https://dailypurpose.herokuapp.com/userdata",{
 
 task:task || "Select Task",
 note:note || "No Notes Added",

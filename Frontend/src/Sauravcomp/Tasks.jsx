@@ -7,10 +7,10 @@ const Tasks = ({setrender, setsetrender, setBulkedit,Bulkedit,selectedtasks, set
   // setBulkedit={setBulkedit} Bulkedit={Bulkedit} 
   const [tasks, settasks] = useState([]);
   function fetchdata() {
-    const data = loadData("userid")
-    axios.get(`http://localhost:8080/userdata/${data}`).then((res) => {
-      console.log(res.data);
-      settasks(res.data);
+    const data = loadData("loginid")
+    axios.get(`https://dailypurpose.herokuapp.com/userdata/${data}`).then((res) => {
+      console.log(res.data,"fetch");
+      settasks(res.data.reverse());
     });
   }
   useEffect(() => {
@@ -18,7 +18,7 @@ const Tasks = ({setrender, setsetrender, setBulkedit,Bulkedit,selectedtasks, set
   }, [setrender]);
   function Handledelete(id) {
     axios
-      .delete(`http://localhost:8080/userdata/${id}`)
+      .delete(`https://dailypurpose.herokuapp.com/userdata/${id}`)
       .then((res) => {
         console.log(res.data);
 

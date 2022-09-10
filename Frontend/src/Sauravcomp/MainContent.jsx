@@ -47,17 +47,17 @@ const MainContent = () => {
     navigate("/auth/login");
   };
   const handleAccount = async()=>{
-    const data = loadData("userid")
-await axios.delete(`http://localhost:8080/userdata/${data}`);
+    const data = loadData("loginid")
+await axios.delete(`https://dailypurpose.herokuapp.com/userdata/${data}`);
 removeItem()
-await axios.delete(`http://localhost:8080/usercred/${data}`);
+await axios.delete(`https://dailypurpose.herokuapp.com/userdata/${data}`);
 removeItem()
 navigate("/auth/signup");
   }
   function handledeleteAll() {
     for (let i = 0; i < selectedtasks.length; i++) {
       axios
-        .delete(`http://localhost:8080/userdata/${selectedtasks[i]}`)
+        .delete(`https://dailypurpose.herokuapp.com/userdata/${selectedtasks[i]}`)
         .then((res) => {
           console.log(res.data);
 

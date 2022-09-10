@@ -39,12 +39,12 @@ const Signup = () => {
     //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
     dispatch(postauthloading());
     axios
-      .post("http://localhost:8080/usercred", {
+      .post("https://dailypurpose.herokuapp.com/usercred", {
         email: email,
         password: password,
       })
       .then((res) => {
-        localStorage.setItem("userid", JSON.stringify(res.data._id));
+        localStorage.setItem("loginid", JSON.stringify(res.data._id));
         dispatch(postauthsucces(res.data._id));
         navigate("/auth/login");
       })

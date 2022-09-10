@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const PORT = process.env.PORT || 8080;
 const userDataRoute = require("./route/UserDataRoute");
 const userCredRoute = require("./route/UserCredRoute");
 
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 app.use("/userdata", userDataRoute)
 app.use("/usercred", userCredRoute)
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     mongoose.connect("mongodb+srv://Shailesh:12345@cluster0.gujnejd.mongodb.net/?retryWrites=true&w=majority")
     console.log("working");
 })

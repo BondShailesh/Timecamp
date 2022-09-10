@@ -8,8 +8,20 @@ userCredRouter.get("/", async (req, res) => {
 })
 
 userCredRouter.get("/:id", async (req, res) => {
-    let user = await userCredRoute.find({ _id: req.params.id }).populate("data")
-    res.send(user)
+    try{
+        let userEmail = await userCredRoute.find({ email: req.params.id }).populate("data")
+        if(userEmail.length>=1){           
+            res.send(userEmail);
+        }else{
+            let user = await userCredRoute.find({ _id: req.params.id }).populate("data")
+            res.send(user)
+        }
+      
+       
+    }catch(e){
+     res.send("Credential Not Found")
+    }
+
 })
 
 userCredRouter.post("/", async (req, res) => {

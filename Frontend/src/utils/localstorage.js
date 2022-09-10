@@ -10,7 +10,7 @@ function loadData(key) {
   
   function removedata(){
     localStorage.removeItem("userid");
-    localStorage.removeItem("loginid");
+    // localStorage.removeItem("loginid");
   }
 
 
@@ -20,6 +20,9 @@ function loadData(key) {
 
   function removeItem(){
     localStorage.removeItem("loginid");
+    
   }
   
   export { removedata, loadData, saveData ,removeItem};
+
+
